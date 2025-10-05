@@ -1,3 +1,44 @@
+# 🐧 Automated Linux Log Analyzer
+
+Sebuah tool command-line sederhana yang ditulis dengan Python untuk menganalisis file log di sistem Linux secara otomatis dan menghasilkan laporan ringkas.
+
+
+
+---
+
+## ✨ Fitur Utama (Key Features)
+
+* **Analisis Fleksibel**: Menganalisis file log apa pun (`auth.log`, `syslog`, dll.) langsung dari terminal.
+* **Pencarian Cerdas**: Mencari beberapa kata kunci atau frasa dalam satu kali proses.
+* **Deteksi Gagal Login**: Menghitung dan melaporkan semua upaya login yang gagal dari `auth.log`.
+* **Pencarian Error**: Memfilter dan menampilkan pesan error atau warning dari `syslog`.
+* **Laporan Otomatis**: Menghasilkan file laporan `.txt` yang bersih dan mudah dibaca, lengkap dengan *timestamp*.
+
+---
+
+## ⚙️ Prasyarat & Instalasi (Prerequisites & Installation)
+
+**Prasyarat:**
+* Python 3.8+
+* Akses `sudo` (diperlukan untuk membaca file log sistem yang dilindungi).
+
+**Langkah Instalasi:**
+
+1.  **Clone repository ini:**
+    ```bash
+    git clone [https://github.com/aadnanmt/logs-analyzer.git](https://github.com/aadnanmt/logs-analyzer.git)
+    cd logs-analyzer
+    ```
+
+2.  **Buat dan aktifkan virtual environment (sangat disarankan):**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    *Catatan: Proyek ini tidak memerlukan library eksternal, jadi tidak ada file `requirements.txt`.*
+
+---
+
 ## 🚀 Cara Penggunaan (Usage)
 
 #### 1. Jalankan Analisis
