@@ -25,7 +25,7 @@ Sebuah tool command-line sederhana yang ditulis dengan Python untuk menganalisis
 
 1.  **Clone repository ini:**
     ```bash
-    git clone [https://github.com/aadnanmt/logs-analyzer.git](https://github.com/aadnanmt/log-analyzer.git)
+    git clone https://github.com/aadnanmt/logs-analyzer.git
     cd logs-analyzer
     ```
 
