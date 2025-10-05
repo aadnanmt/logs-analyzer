@@ -39,7 +39,23 @@ Sebuah tool command-line sederhana yang ditulis dengan Python untuk menganalisis
 
 ---
 
-## 🚀 Cara Penggunaan (Usage)
+## 🚀 Cara Penggunaan Sederhana (Usage)
+
+1.  **Konfigurasi (jika ada):**
+    Buka file `config.ini` dan sesuaikan path file log yang ingin dianalisis.
+    ```ini
+    [settings]
+    log_file_path = /var/log/auth.log
+    keywords = Failed password, error
+    ```
+
+2.  **Jalankan skrip utama:**
+    Pastikan kamu menjalankannya dengan `sudo` agar skrip memiliki izin untuk membaca file log sistem.
+    ```bash
+    sudo python main.py
+    ```
+---
+## 🚀 Cara Penggunaan Kompleks (Usage)
 
 #### 1. Jalankan Analisis
 Jalankan skrip `main.py` dengan `sudo` dan berikan argumen `--file` dan `--keywords`. Skrip akan memberitahukan di mana laporan disimpan.
