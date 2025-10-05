@@ -96,3 +96,42 @@ Setelah skrip berjalan, kamu bisa melihat isi laporan langsung dari terminal.
     - Oct  5 17:29:01 my-server sshd[1234]: Failed password for invalid user admin from 10.0.2.2
     ... (dan seterusnya)
     ```
+* **Tampilkan isi salah satu laporan menggunakan `xdg-open`:**
+    ```bash
+    xdg-open reports/analysis_report_2025-10-05_17-30-00.txt
+    ```## 🚀 Cara Penggunaan (Usage)
+
+#### 1. Jalankan Analisis
+Jalankan skrip dengan `sudo` dan berikan argumen yang diperlukan. Skrip akan memberitahukan di mana laporan disimpan.
+
+* **Contoh:**
+    ```bash
+    sudo python3 main.py --file /var/log/auth.log --keywords "Failed password"
+    ```
+    *Output Terminal:*
+    ```
+    [*] Analyzing file: /var/log/auth.log
+    [+] Report successfully saved to: reports/analysis_report_2025-10-05_17-45-00.txt
+    ```
+
+#### 2. Lihat Hasil Laporan
+Setelah laporan dibuat, pertama-tama lihat nama filenya, lalu pilih caramu untuk membukanya.
+
+* **Langkah 1: Lihat daftar laporan yang ada:**
+    ```bash
+    ls reports/
+    ```
+
+* **Langkah 2: Pilih caramu untuk membaca laporan:**
+
+    * **Opsi A: Tampilkan di Terminal (Cepat & Standar)**
+        Gunakan perintah `cat` untuk melihat isinya langsung di terminal.
+        ```bash
+        cat reports/analysis_report_2025-10-05_17-45-00.txt
+        ```
+
+    * **Opsi B: Buka dengan Aplikasi GUI (Editor Teks)**
+        Gunakan `xdg-open` untuk membuka file dengan aplikasi editor teks default di Linux-mu (seperti Gedit, VS Code, dll).
+        ```bash
+        xdg-open reports/analysis_report_2025-10-05_17-45-00.txt
+        ```
