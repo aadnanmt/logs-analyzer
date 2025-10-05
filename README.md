@@ -1,65 +1,41 @@
-# 🐧 Automated Linux Log Analyzer
-
-Sebuah tool command-line sederhana yang ditulis dengan Python untuk menganalisis file log sistem Linux secara otomatis dan menghasilkan laporan ringkas.
-
-
-
----
-
-## ✨ Fitur Utama (Key Features)
-
-* **Analisis Cepat**: Secara otomatis membaca file log (`auth.log`, `syslog`, dll.) untuk mencari event penting.
-* **Deteksi Gagal Login**: Menghitung dan melaporkan semua upaya login yang gagal dari `auth.log`.
-* **Pencarian Error**: Memfilter dan menampilkan pesan error atau warning dari `syslog`.
-* **Laporan Simpel**: Menghasilkan output laporan yang bersih dan mudah dibaca di terminal.
-
----
-
-## ⚙️ Prasyarat & Instalasi (Prerequisites & Installation)
-
-**Prasyarat:**
-* Python 3.8+
-* Akses `sudo` untuk membaca file log sistem.
-
-**Langkah Instalasi:**
-
-1.  **Clone repository ini:**
-    ```bash
-    git clone https://github.com/aadnanmt/logs-analyzer.git
-    cd logs-analyzer
-    ```
-
-2.  **Buat dan aktifkan virtual environment (sangat disarankan):**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-
-3.  **Install semua library yang dibutuhkan:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
----
-
 ## 🚀 Cara Penggunaan (Usage)
 
-1.  **Konfigurasi (jika ada):**
-    Buka file `config.ini` dan sesuaikan path file log yang ingin dianalisis.
-    ```ini
-    [settings]
-    log_file_path = /var/log/auth.log
-    keywords = Failed password, error
-    ```
+#### 1. Jalankan Analisis
+Jalankan skrip `main.py` dengan `sudo` dan berikan argumen `--file` dan `--keywords`. Skrip akan memberitahukan di mana laporan disimpan.
 
-2.  **Jalankan skrip utama:**
-    Pastikan kamu menjalankannya dengan `sudo` agar skrip memiliki izin untuk membaca file log sistem.
+* **Mencari upaya login yang gagal:**
     ```bash
-    sudo python main.py
+    sudo python3 main.py --file /var/log/auth.log --keywords "Failed password,invalid user"
+    ```
+    *Output Terminal:*
+    ```
+    [*] Analyzing file: /var/log/auth.log
+    [+] Report successfully saved to: reports/analysis_report_2025-10-05_17-30-00.txt
     ```
 
----
+#### 2. Lihat Hasil Laporan
+Setelah skrip berjalan, kamu bisa melihat isi laporan langsung dari terminal.
 
-## 📄 Contoh Output (Example Output)
+* **Lihat daftar semua laporan yang ada:**
+    ```bash
+    ls reports/
+    ```
+    *Contoh Output Terminal:*
+    ```
+    analysis_report_2025-10-05_17-30-00.txt
+    ```
 
-Setelah dijalankan, skrip akan menampilkan laporan seperti ini di terminal:
+* **Tampilkan isi salah satu laporan menggunakan `cat`:**
+    ```bash
+    cat reports/analysis_report_2025-10-05_17-30-00.txt
+    ```
+    *Contih Output Terminal:*
+    ```
+    Log Analysis Report - 2025-10-05 17:30:00
+    ========================================
+
+    Found 5 matching entries:
+
+    - Oct  5 17:29:01 my-server sshd[1234]: Failed password for invalid user admin from 10.0.2.2
+    ... (dan seterusnya)
+    ```
